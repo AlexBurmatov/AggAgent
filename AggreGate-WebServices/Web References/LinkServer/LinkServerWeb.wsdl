@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://webservice.linkserver.tibbo.com" xmlns:impl="http://webservice.linkserver.tibbo.com" targetNamespace="http://webservice.linkserver.tibbo.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://webservice.linkserver.tibbo.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOfString">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getResponse">
+    <wsdl:part name="getReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callByStringArrayRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="function" type="xsd:string" />
+    <wsdl:part name="values" type="impl:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="setRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="variable" type="xsd:string" />
+    <wsdl:part name="value" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="setXMLResponse" />
+  <wsdl:message name="getXmlRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="variable" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="setByStringArrayResponse" />
+  <wsdl:message name="callResponse">
+    <wsdl:part name="callReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callXMLRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="function" type="xsd:string" />
+    <wsdl:part name="parameters" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="setByStringArrayRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="variable" type="xsd:string" />
+    <wsdl:part name="values" type="impl:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="setResponse" />
+  <wsdl:message name="setXMLRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="variable" type="xsd:string" />
+    <wsdl:part name="value" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="variable" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+    <wsdl:part name="context" type="xsd:string" />
+    <wsdl:part name="function" type="xsd:string" />
+    <wsdl:part name="parameters" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callXMLResponse">
+    <wsdl:part name="callXMLReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callByStringArrayResponse">
+    <wsdl:part name="callByStringArrayReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getXmlResponse">
+    <wsdl:part name="getXmlReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="LinkServerWeb">
+    <wsdl:operation name="get" parameterOrder="username password context variable">
+      <wsdl:input name="getRequest" message="impl:getRequest" />
+      <wsdl:output name="getResponse" message="impl:getResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="set" parameterOrder="username password context variable value">
+      <wsdl:input name="setRequest" message="impl:setRequest" />
+      <wsdl:output name="setResponse" message="impl:setResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="call" parameterOrder="username password context function parameters">
+      <wsdl:input name="callRequest" message="impl:callRequest" />
+      <wsdl:output name="callResponse" message="impl:callResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="callXML" parameterOrder="username password context function parameters">
+      <wsdl:input name="callXMLRequest" message="impl:callXMLRequest" />
+      <wsdl:output name="callXMLResponse" message="impl:callXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getXML" parameterOrder="username password context variable">
+      <wsdl:input name="getXmlRequest" message="impl:getXmlRequest" />
+      <wsdl:output name="getXmlResponse" message="impl:getXmlResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setByStringArray" parameterOrder="username password context variable values">
+      <wsdl:input name="setByStringArrayRequest" message="impl:setByStringArrayRequest" />
+      <wsdl:output name="setByStringArrayResponse" message="impl:setByStringArrayResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="callByStringArray" parameterOrder="username password context function values">
+      <wsdl:input name="callByStringArrayRequest" message="impl:callByStringArrayRequest" />
+      <wsdl:output name="callByStringArrayResponse" message="impl:callByStringArrayResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setXML" parameterOrder="username password context variable value">
+      <wsdl:input name="setXMLRequest" message="impl:setXMLRequest" />
+      <wsdl:output name="setXMLResponse" message="impl:setXMLResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LinkServerWebSoapBinding" type="impl:LinkServerWeb">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="get">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="set">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="call">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="callRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="callResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callXML">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="callXMLRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="callXMLResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getXML">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getXmlRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getXmlResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setByStringArray">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setByStringArrayRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setByStringArrayResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callByStringArray">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="callByStringArrayRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="callByStringArrayResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setXML">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setXMLRequest">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="setXMLResponse">
+        <wsdlsoap:body use="encoded" namespace="http://webservice.linkserver.tibbo.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LinkServerWebService">
+    <wsdl:port name="LinkServerWeb" binding="impl:LinkServerWebSoapBinding">
+      <wsdlsoap:address location="https://localhost:8443/ws/services/LinkServerWeb" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

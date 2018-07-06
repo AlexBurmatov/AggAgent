@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C80B8E4-024C-496F-9E5A-751EDF18DB6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.tibbo.aggregate</RootNamespace>
+    <AssemblyName>AggreGate-API</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>5</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common.agent\Agent.cs" />
+    <Compile Include="common.agent\AgentContext.cs" />
+    <Compile Include="common.agent\AgentImplementationController.cs" />
+    <Compile Include="common.agent\HistoricalValue.cs" />
+    <Compile Include="common.agent\Md5Utils.cs" />
+    <Compile Include="common.binding\Binding.cs" />
+    <Compile Include="common.command\AggreGateCommand.cs" />
+    <Compile Include="common.context\AbstractEntityDefinition.cs" />
+    <Compile Include="common.context\EntityDefinition.cs" />
+    <Compile Include="common.datatable\DataTableReplication.cs" />
+    <Compile Include="common.event\FireEventRequestController.cs" />
+    <Compile Include="common.event\PersistenceOptions.cs" />
+    <Compile Include="common.protocol\DefaultClientController.cs" />
+    <Compile Include="common.security\PermissionCache.cs" />
+    <Compile Include="common.datatable\NullableObject.cs" />
+    <Compile Include="common.util\AgDictionary.cs" />
+    <Compile Include="common.util\AgOperationsMeasurer.cs" />
+    <Compile Include="common.util\AgTimeMeasurer.cs" />
+    <Compile Include="common.command\AsyncCommandProcessor.cs" />
+    <Compile Include="common.command\AsyncCommandSender.cs" />
+    <Compile Include="common.command\ClientCommandUtils.cs" />
+    <Compile Include="common.command\Command.cs" />
+    <Compile Include="common.command\CommandBuffer.cs" />
+    <Compile Include="common.command\CommandBufferListener.cs" />
+    <Compile Include="common.datatable.encoding\TransferEncodingHelper.cs" />
+    <Compile Include="common.command\IncomingAggreGateCommand.cs" />
+    <Compile Include="common.command\OutgoingAggreGateCommand.cs" />
+    <Compile Include="common.command\ReplyMonitor.cs" />
+    <Compile Include="common.context\AbstractCallerController.cs" />
+    <Compile Include="common.context\AbstractContext.cs" />
+    <Compile Include="common.context\AbstractContextEventListener.cs" />
+    <Compile Include="common.context\CallerController.cs" />
+    <Compile Include="common.context\CallerData.cs" />
+    <Compile Include="common.context\Context.cs" />
+    <Compile Include="common.context\ContextEventListener.cs" />
+    <Compile Include="common.context\ContextException.cs" />
+    <Compile Include="common.context\ContextManager.cs" />
+    <Compile Include="common.context\ContextRuntimeException.cs" />
+    <Compile Include="common.context\ContextSecurityException.cs" />
+    <Compile Include="common.context\ContextUtils.cs" />
+    <Compile Include="common.context\ContextVisitor.cs" />
+    <Compile Include="common.context\DefaultContextEventListener.cs" />
+    <Compile Include="common.context\DefaultContextManager.cs" />
+    <Compile Include="common.context\DefaultRequestController.cs" />
+    <Compile Include="common.context\EventData.cs" />
+    <Compile Include="common.context\EventDefinition.cs" />
+    <Compile Include="common.context\FireEventRequestData.cs" />
+    <Compile Include="common.context\FunctionData.cs" />
+    <Compile Include="common.context\FunctionDefinition.cs" />
+    <Compile Include="common.context\FunctionImplementation.cs" />
+    <Compile Include="common.context\RequestController.cs" />
+    <Compile Include="common.context\RequestData.cs" />
+    <Compile Include="common.context\ServerCallerData.cs" />
+    <Compile Include="common.context\UncheckedCallerController.cs" />
+    <Compile Include="common.context\VariableData.cs" />
+    <Compile Include="common.context\VariableDefinition.cs" />
+    <Compile Include="common.context\VariableGetter.cs" />
+    <Compile Include="common.context\VariableSetter.cs" />
+    <Compile Include="common.datatable.converter\AbstractFormatConverter.cs" />
+    <Compile Include="common.datatable.converter\DefaultFormatConverter.cs" />
+    <Compile Include="common.datatable.converter\FormatConverter.cs" />
+    <Compile Include="common.datatable.field\BooleanFieldFormat.cs" />
+    <Compile Include="common.datatable.field\ColorFieldFormat.cs" />
+    <Compile Include="common.datatable.field\DataFieldFormat.cs" />
+    <Compile Include="common.datatable.field\DataTableFieldFormat.cs" />
+    <Compile Include="common.datatable.field\DateFieldFormat.cs" />
+    <Compile Include="common.datatable.field\DoubleFieldFormat.cs" />
+    <Compile Include="common.datatable.field\FloatFieldFormat.cs" />
+    <Compile Include="common.datatable.field\IntFieldFormat.cs" />
+    <Compile Include="common.datatable.field\LongFieldFormat.cs" />
+    <Compile Include="common.datatable.field\StringFieldFormat.cs" />
+    <Compile Include="common.datatable.validator\AbstractFieldValidator.cs" />
+    <Compile Include="common.datatable.validator\AbstractRecordValidator.cs" />
+    <Compile Include="common.datatable.validator\AbstractTableValidator.cs" />
+    <Compile Include="common.datatable.validator\FieldValidator.cs" />
+    <Compile Include="common.datatable.validator\KeyFieldsValidator.cs" />
+    <Compile Include="common.datatable.validator\LimitsValidator.cs" />
+    <Compile Include="common.datatable.validator\RecordValidator.cs" />
+    <Compile Include="common.datatable.validator\RegexValidator.cs" />
+    <Compile Include="common.datatable.validator\TableKeyFieldsValidator.cs" />
+    <Compile Include="common.datatable.validator\TableValidator.cs" />
+    <Compile Include="common.datatable\ClassicEncodingSettings.cs" />
+    <Compile Include="common.datatable\DataRecord.cs" />
+    <Compile Include="common.datatable\DataTable.cs" />
+    <Compile Include="common.datatable\DataTableUtils.cs" />
+    <Compile Include="common.datatable\EncodingSettings.cs" />
+    <Compile Include="common.datatable\FieldFormat.cs" />
+    <Compile Include="common.datatable\FormatCache.cs" />
+    <Compile Include="common.datatable\KnownFormatCollector.cs" />
+    <Compile Include="common.datatable\Query.cs" />
+    <Compile Include="common.datatable\QueryCondition.cs" />
+    <Compile Include="common.datatable\TableFormat.cs" />
+    <Compile Include="common.datatable\ValidationException.cs" />
+    <Compile Include="common.data\Data.cs" />
+    <Compile Include="common.data\Event.cs" />
+    <Compile Include="common.device\AbstractClientController.cs" />
+    <Compile Include="common.device\AggreGateDevice.cs" />
+    <Compile Include="common.device\AggreGateDeviceController.cs" />
+    <Compile Include="common.device\AggreGateNetworkDevice.cs" />
+    <Compile Include="common.device\DeviceControllerProvider.cs" />
+    <Compile Include="common.device\DisconnectionException.cs" />
+    <Compile Include="common.device\EntityReference.cs" />
+    <Compile Include="common.device\RemoteDeviceContextManager.cs" />
+    <Compile Include="common.device\RemoteDeviceContextProxy.cs" />
+    <Compile Include="common.device\RemoteDeviceErrorException.cs" />
+    <Compile Include="common.device\RemoteLinkServer.cs" />
+    <Compile Include="common.device\RemoteLinkServerController.cs" />
+    <Compile Include="common.device\ThreadPoolExectutor.cs" />
+    <Compile Include="common.event\Acknowledgement.cs" />
+    <Compile Include="common.event\EventHandlingException.cs" />
+    <Compile Include="common.event\EventLevel.cs" />
+    <Compile Include="common.event\EventUtils.cs" />
+    <Compile Include="common.event\ObsoleteListenerException.cs" />
+    <Compile Include="common.expression\Expression.cs" />
+    <Compile Include="common.expression\ExpressionUtils.cs" />
+    <Compile Include="common.reference\Reference.cs" />
+    <Compile Include="common.security\DefaultPermissionChecker.cs" />
+    <Compile Include="common.security\NullPermissionChecker.cs" />
+    <Compile Include="common.security\Permission.cs" />
+    <Compile Include="common.security\PermissionChecker.cs" />
+    <Compile Include="common.security\Permissions.cs" />
+    <Compile Include="common.security\PermissionType.cs" />
+    <Compile Include="common.server\LinkServerContextConstants.cs" />
+    <Compile Include="common.server\RootContextConstants.cs" />
+    <Compile Include="common.server\UtilsContextConstants.cs" />
+    <Compile Include="common.util\AgList.cs" />
+    <Compile Include="common.util\StreamWrapper.cs" />
+    <Compile Include="common.util\CloneUtils.cs" />
+    <Compile Include="common.util\Element.cs" />
+    <Compile Include="common.util\ElementList.cs" />
+    <Compile Include="common.util\AgPerformanceCounter.cs" />
+    <Compile Include="common.util\StringEncodable.cs" />
+    <Compile Include="common.util\StringUtils.cs" />
+    <Compile Include="common.util\TimeHelper.cs" />
+    <Compile Include="common.util\TimeUnit.cs" />
+    <Compile Include="common.util\Util.cs" />
+    <Compile Include="common\AggreGateException.cs" />
+    <Compile Include="common\Cres.cs" />
+    <Compile Include="common\Log.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prerequisites\Collections\Collections.csproj">
+      <Project>{62B4BC06-719D-4279-9621-5B9AD63F5161}</Project>
+      <Name>Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prerequisites\JavaCompatibility\JavaCompatibility.csproj">
+      <Project>{2FB3CFDC-3261-4B61-B196-4E1A6667A317}</Project>
+      <Name>JavaCompatibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prerequisites\OX.Copyable\OX.Copyable\OX.Copyable.csproj">
+      <Project>{44974FCD-7B84-425D-B8F1-8FF029335B89}</Project>
+      <Name>OX.Copyable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
